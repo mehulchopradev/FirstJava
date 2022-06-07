@@ -6,8 +6,7 @@ public class StudentList {
                 new Student("john", 'm', 14, 67),
         };
 
-        for(int i = 0; i < students.length; i++) {
-            Student student = students[i];
+        for(Student student : students) {
             System.out.println(student.getNameGender());
         }
     }
