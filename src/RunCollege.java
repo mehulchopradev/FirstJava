@@ -1,3 +1,4 @@
+import com.abc.salary.SalaryCalculator;
 import com.globalpayex.college.entities.Professor;
 import com.globalpayex.college.entities.Student;
 
@@ -9,7 +10,9 @@ public class RunCollege {
         Student s = new Student("mehul", 'm', 10, 90);
 
         String[] subjects = {"Physics", "Chemistry"};
-        Professor p = new Professor("jane", 'f', subjects);
+        Professor p = new Professor("jane", 'f', subjects, 5000, 20);
+        System.out.println(SalaryCalculator.calculate(p));
+        System.out.println(p.calculate());
 
         System.out.println(i);
 
