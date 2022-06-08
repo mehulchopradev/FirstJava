@@ -1,4 +1,6 @@
-public class Student {
+package com.globalpayex.college.entities;
+
+public class StudentOld {
 
     // instance attributes
     String name;
@@ -7,31 +9,31 @@ public class Student {
     float marks;
 
     // class attribute
-    static int count;
+    public static int count;
 
     // by default
-    /* Student(Student this) {
+    /* com.globalpayex.college.entities.Student(com.globalpayex.college.entities.Student this) {
 
         return this;
     } */
 
     // overloaded constructors
-    Student() {
+    public StudentOld() {
         // must be the first statement in a constructor
         this("NA", 'm', -1, 0.0f);
     }
 
     // constructor
-    Student(String name, char gender, int roll, float marks) {
+    public StudentOld(String name, char gender, int roll, float marks) {
         // implicit parameter this --> current object
         this.name = name;
         this.gender = gender;
         this.roll = roll;
         this.marks = marks;
-        ++Student.count;
+        ++StudentOld.count;
     }
 
-    String getDetails() {
+    public String getDetails() {
         // Implicit paramter called as `this`--> s1, s2, s3 ---> current object
         /* return "Name: " + this.name + "\nGender: " + this.gender +
                 "\nRoll: " + this.roll + "\nMarks: " + this.marks; */
@@ -40,7 +42,7 @@ public class Student {
                 this.name, this.gender, this.roll, this.marks);
     }
 
-    char getGrade() {
+    public char getGrade() {
         char grade;
         var marks = this.marks;
         if (marks < 0 || marks > 100) {
@@ -60,14 +62,14 @@ public class Student {
 
     /*
     // Internally
-    String getDetails(Student this) {
+    String getDetails(com.globalpayex.college.entities.Student this) {
 
     }
     */
 
-    static Student newInstance(String name, char gender, int roll, float marks) {
+    public static StudentOld newInstance(String name, char gender, int roll, float marks) {
         // System.out.println(this); // no `this` in a static function
-        return new Student(name, gender, roll, marks);
+        return new StudentOld(name, gender, roll, marks);
     }
 
     public String getNameGender() {
