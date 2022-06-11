@@ -1,8 +1,10 @@
 package com.globalpayex.college.entities;
 
+import java.util.Objects;
+
 public class Student extends CollegeUser {
-    int roll;
-    float marks;
+    public int roll;
+    public float marks;
 
     public Student(String name, char gender, int roll, float marks) {
         // super(); // Calls the super class constructor
@@ -25,5 +27,18 @@ public class Student extends CollegeUser {
 
         return String.format("%s\nRoll: %s\nMarks: %s",
                 str1, this.roll, this.marks);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return roll == student.roll;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(roll);
     }
 }
