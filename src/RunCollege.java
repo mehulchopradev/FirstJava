@@ -9,7 +9,7 @@ public class RunCollege {
         int i = 10;
 
         Student s = new Student("mehul", 'm', 10, 90);
-        s.setAddress(new Address("IN", "MH", 400053));
+        s.setAddress(new Address("IN", "UP", 400057));
         System.out.println(s.getDetails());
         System.out.println(s.isAddressPresent());
 
