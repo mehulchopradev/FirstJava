@@ -1,4 +1,5 @@
 import com.abc.salary.SalaryCalculator;
+import com.globalpayex.college.entities.Address;
 import com.globalpayex.college.entities.Professor;
 import com.globalpayex.college.entities.Student;
 
@@ -8,11 +9,16 @@ public class RunCollege {
         int i = 10;
 
         Student s = new Student("mehul", 'm', 10, 90);
+        s.setAddress(new Address("IN", "MH", 400053));
+        System.out.println(s.getDetails());
+        System.out.println(s.isAddressPresent());
 
         String[] subjects = {"Physics", "Chemistry"};
         Professor p = new Professor("jane", 'f', subjects, 5000, 20);
+        System.out.println(p.getDetails());
         System.out.println(SalaryCalculator.calculate(p));
         System.out.println(p.calculate());
+        System.out.println(p.isAddressPresent());
 
         System.out.println(i);
 

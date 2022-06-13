@@ -2,7 +2,7 @@ package com.globalpayex.college.entities;
 
 import java.util.Objects;
 
-public class Student extends CollegeUser {
+final public class Student extends CollegeUser {
     public int roll;
     public float marks;
 
@@ -11,10 +11,17 @@ public class Student extends CollegeUser {
         // Internally
         // CollegeUser(this)
 
-        super(name, gender);
+        // super(name, gender);
         // Internally
         // CollegeUser(name, gender)
 
+        // this.roll = roll;
+        // this.marks = marks;
+        this(name, gender, roll, marks, null);
+    }
+
+    public Student(String name, char gender, int roll, float marks, Address address) {
+        super(name, gender, address);
         this.roll = roll;
         this.marks = marks;
     }
@@ -25,9 +32,17 @@ public class Student extends CollegeUser {
         // Internally
         // CollegeUser.getDetails(this);
 
+        System.out.println(this.gender);
+
         return String.format("%s\nRoll: %s\nMarks: %s",
                 str1, this.roll, this.marks);
     }
+
+    // cannot override a final method
+    /* @Override
+    public char getGender() {
+        return super.getGender();
+    } */
 
     @Override
     public boolean equals(Object o) {

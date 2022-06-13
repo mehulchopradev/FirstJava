@@ -10,7 +10,7 @@ public class CreateStudents {
         // com.globalpayex.college.entities.Student(6006)
         // s1 ---> 6006
 
-        var s1 = new StudentOld("mehul", 'm', 10, 56);
+        final var s1 = new StudentOld("mehul", 'm', 10, 56);
 
         // Internally
         // new ---> RAM 6006
@@ -57,5 +57,8 @@ public class CreateStudents {
 
         StudentOld s4 = StudentOld.newInstance("John", 'm', 34, 90);
         System.out.println(s4.getDetails());
+
+        // s1 is final and cannot reassign value to a final variable
+        // s1 = new StudentOld("john doe", 'm', 15, 56);
     }
 }
