@@ -38,6 +38,9 @@ public class StudentOld {
         /* return "Name: " + this.name + "\nGender: " + this.gender +
                 "\nRoll: " + this.roll + "\nMarks: " + this.marks; */
 
+        /* CollegeUser collegeUser = new CollegeUser("mehul", 'm');
+        System.out.println(collegeUser.gender); */
+
         return String.format("Name: %s\nGender: %s\nRoll: %s\nMarks: %s",
                 this.name, this.gender, this.roll, this.marks);
     }
