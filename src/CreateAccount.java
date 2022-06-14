@@ -1,14 +1,19 @@
+import com.globalpayex.AccType;
 import com.globalpayex.bank.entities.Account;
 import com.globalpayex.bank.exceptions.MinBalNotMaintainedException;
 
 import java.util.Optional;
 
+import static com.globalpayex.Constants.*;
+
 public class CreateAccount {
 
     public static void main(String[] args) {
-        Account a = new Account("Savings", "123ABC", 10000);
+        // Account a = new Account(ACC_TYPE_SAVINGS, "123ABC", 10000);
         // System.out.println(a.deposit(1000));
-        a.getDetails().ifPresent(details -> System.out.println(details.toUpperCase()));
+
+        Account a = new Account(AccType.SAVINGS, "123ABC", 10000);
+        a.getDetails().ifPresent(details -> System.out.println(details));
 
         /* try {
             System.out.println(a.withdraw(0));
@@ -55,7 +60,7 @@ public class CreateAccount {
 
         // set the accType private attribute at a later point in the program
         // emptyAccount.accType = "Xyz";
-        emptyAccount.setAccType("Savings");
+        emptyAccount.setAccType(AccType.CURRENT);
         emptyAccount.accNumber = "1234ABc";
         // emptyAccount.balance = -10000;
         emptyAccount.setBalance(1000);

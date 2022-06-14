@@ -1,6 +1,10 @@
 package com.globalpayex.bank.entities;
 
+import com.globalpayex.AccType;
+import com.globalpayex.Constants;
 import com.globalpayex.bank.exceptions.MinBalNotMaintainedException;
+
+import static com.globalpayex.Constants.*;
 
 import java.util.Optional;
 
@@ -12,13 +16,20 @@ public class Account {
     // 2. All instance attributes must have public getter/setter methods
 
     // Savings, Current
-    private String accType;
+    // private String accType;
+    private AccType accType;
 
     public String accNumber;
 
     private double balance;
 
-    public Account(String accType, String accNumber, double balance) {
+    /* public Account(String accType, String accNumber, double balance) {
+        this.accType = accType;
+        this.accNumber = accNumber;
+        this.balance = balance;
+    } */
+
+    public Account(AccType accType, String accNumber, double balance) {
         this.accType = accType;
         this.accNumber = accNumber;
         this.balance = balance;
@@ -36,8 +47,8 @@ public class Account {
     }
 
     // setter
-    public void setAccType(String accType) {
-        if (accType.equals("Savings") || accType.equals("Current")) {
+    /* public void setAccType(String accType) {
+        if (accType.equals(ACC_TYPE_SAVINGS) || accType.equals(ACC_TYPE_CURRENT)) {
             this.accType = accType;
         } else {
             throw new IllegalArgumentException("accType must be one of the following: Savings/Current");
@@ -47,6 +58,14 @@ public class Account {
     // getter
     public String getAccType() {
         return this.accType.toUpperCase();
+    } */
+
+    public void setAccType(AccType accType) {
+        this.accType = accType;
+    }
+
+    public AccType getAccType() {
+        return accType;
     }
 
     public double withdraw(double amt) throws MinBalNotMaintainedException {
@@ -86,12 +105,29 @@ public class Account {
         return null;
     } */
 
-    public Optional<String> getDetails() {
+    /* public Optional<String> getDetails() {
         if (this.accNumber != null && !this.accNumber.equals("") && this.accType != null &&
                 !this.accType.equals("")) {
             return Optional.of(String.format("Acc no: %s\nAcc Type: %s\nBal: %s", this.accNumber, this.getAccType(), this.balance));
         }
 
         return Optional.empty();
+    } */
+
+    public Optional<String> getDetails() {
+        if (this.accNumber != null && !this.accNumber.equals("") && this.accType != null) {
+            return Optional.of(String.format("Acc no: %s\nAcc Type: %s\nBal: %s",
+                    this.accNumber, this.accType.getActualValue(), this.balance));
+        }
+
+        return Optional.empty();
+    }
+
+    /* public boolean hasInterest() {
+        return this.accType.equals(ACC_TYPE_SAVINGS);
+    } */
+
+    public boolean hasInterest() {
+        return this.accType == AccType.SAVINGS;
     }
 }

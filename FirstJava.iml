@@ -23,5 +23,9 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="mockito-junit-jupiter-4.6.1" level="project" />
+    <orderEntry type="library" name="mockito-core-4.6.1" level="project" />
+    <orderEntry type="library" name="byte-buddy-1.12.10" level="project" />
+    <orderEntry type="library" name="objenesis-3.2" level="project" />
   </component>
 </module>
